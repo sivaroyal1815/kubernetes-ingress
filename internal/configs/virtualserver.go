@@ -216,7 +216,6 @@ func newHealthCheckWithDefaults(upstream conf_v1.Upstream, upstreamName string, 
 		Jitter:              "0s",
 		Fails:               1,
 		Passes:              1,
-		Port:                int(upstream.Port),
 		ProxyPass:           fmt.Sprintf("%v://%v", generateProxyPassProtocol(upstream.TLS.Enable), upstreamName),
 		ProxyConnectTimeout: generateTimeWithDefault(upstream.ProxyConnectTimeout, cfgParams.ProxyConnectTimeout),
 		ProxyReadTimeout:    generateTimeWithDefault(upstream.ProxyReadTimeout, cfgParams.ProxyReadTimeout),
@@ -1322,7 +1321,7 @@ func generateHealthCheck(
 	}
 
 	if upstream.HealthCheck.Port > 0 {
-		hc.Port = upstream.HealthCheck.Port
+		hc.Port = &upstream.HealthCheck.Port
 	}
 
 	if upstream.HealthCheck.ConnectTimeout != "" {

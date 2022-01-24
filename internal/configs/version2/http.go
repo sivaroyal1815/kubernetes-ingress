@@ -241,7 +241,7 @@ type HealthCheck struct {
 	Jitter              string
 	Fails               int
 	Passes              int
-	Port                int
+	Port                *int
 	ProxyPass           string
 	ProxyConnectTimeout string
 	ProxyReadTimeout    string

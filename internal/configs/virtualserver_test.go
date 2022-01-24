@@ -6711,7 +6711,7 @@ func TestGenerateHealthCheck(t *testing.T) {
 				Jitter:              "2s",
 				Fails:               3,
 				Passes:              2,
-				Port:                8080,
+				Port:                createPointerFromInt(8080),
 				Headers: map[string]string{
 					"Host":       "my.service",
 					"User-Agent": "nginx",
@@ -6893,7 +6893,7 @@ func TestGenerateGrpcHealthCheck(t *testing.T) {
 				Jitter:              "2s",
 				Fails:               3,
 				Passes:              2,
-				Port:                50051,
+				Port:                createPointerFromInt(50051),
 				GRPCStatus:          createPointerFromInt(12),
 				GRPCService:         "grpc-service",
 				Headers: map[string]string{
