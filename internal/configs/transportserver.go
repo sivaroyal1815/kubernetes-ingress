@@ -154,7 +154,7 @@ func generateTransportServerHealthCheck(upstreamName string, generatedUpstreamNa
 			}
 
 			if u.HealthCheck.Port > 0 {
-				hc.Port = u.HealthCheck.Port
+				hc.Port = &u.HealthCheck.Port
 			}
 
 			if u.HealthCheck.Match != nil {
@@ -175,7 +175,6 @@ func generateTransportServerHealthCheckWithDefaults(up conf_v1alpha1.Upstream) *
 		Enabled:  false,
 		Timeout:  "5s",
 		Jitter:   "0s",
-		Port:     up.Port,
 		Interval: "5s",
 		Passes:   1,
 		Fails:    1,

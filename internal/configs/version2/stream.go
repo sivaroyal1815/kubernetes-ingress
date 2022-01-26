@@ -49,7 +49,7 @@ type StreamServer struct {
 type StreamHealthCheck struct {
 	Enabled  bool
 	Interval string
-	Port     int
+	Port     *int
 	Passes   int
 	Jitter   string
 	Fails    int

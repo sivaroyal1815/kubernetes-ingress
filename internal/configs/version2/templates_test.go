@@ -389,7 +389,7 @@ var transportServerCfg = TransportServerConfig{
 			Enabled:  false,
 			Timeout:  "5s",
 			Jitter:   "0",
-			Port:     8080,
+			Port:     createPointerFromInt(8080),
 			Interval: "5s",
 			Passes:   1,
 			Fails:    1,
